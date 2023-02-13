@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Table</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  </head>
+  <body style="text-align: center; background-color:pink; color:purple">
+    {% for table in tables %}
+    <h1 style="margin-top:50px">{{titles[loop.index]}}</h1>
+    {{ table|safe }}
+    {% endfor %}
+  </body>
+  <script>
+    $(document).ready(function() {
+        $('table').DataTable({
+          "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]]
+        });
+    });
+  </script>
+</html>
